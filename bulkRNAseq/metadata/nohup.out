@@ -1,0 +1,4 @@
+fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Start /ceph/projects/tomoyo_SETD1A_bulk_RNA-seq_npcneuron/metadata: 2023-01-16 14:00:51-05:00
+End /ceph/projects/tomoyo_SETD1A_bulk_RNA-seq_npcneuron/metadata: 2023-01-16 14:01:07-05:00

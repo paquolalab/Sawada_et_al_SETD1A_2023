@@ -1,0 +1,4 @@
+/ceph/opt/featurecounts_to_table/featurecounts_to_table.py \
+    --lengths_column 1 \
+    --counts_column 2 \
+    ../../_m/*.counts.txt

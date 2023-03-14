@@ -1,0 +1,5 @@
+#!/bin/bash
+
+../_h/fastqc_multiqc_snakemake.sh
+
+multiqc -f -v ../_m/ --title "XPD_RNA-seq"

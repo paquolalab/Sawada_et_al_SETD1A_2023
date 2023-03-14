@@ -1,0 +1,11 @@
+[NbConvertApp] Converting notebook tmp_main.ipynb to notebook
+[NbConvertApp] Converting notebook main.ipynb to html
+[NbConvertApp] Writing 620860 bytes to main.html
+[NbConvertApp] Converting notebook main.ipynb to pdf
+[NbConvertApp] Writing 51202 bytes to notebook.tex
+[NbConvertApp] Building PDF
+[NbConvertApp] Running xelatex 3 times: ['xelatex', 'notebook.tex', '-quiet']
+[NbConvertApp] Running bibtex 1 time: ['bibtex', 'notebook']
+[NbConvertApp] WARNING | bibtex had problems, most likely because there were no citations
+[NbConvertApp] PDF successfully created
+[NbConvertApp] Writing 41066 bytes to main.pdf

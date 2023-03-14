@@ -1,0 +1,53 @@
+#!/bin/bash
+"exec" "snakemake" "--keep-going" "--printshellcmds" "--jobs" "8" "--snakefile" "$0"
+
+import glob
+import os.path
+import itertools
+
+
+import pandas as pd
+
+def get_sample_data():
+    df = pd.read_csv('/ceph/projects/tomoyo_SETD1A_bulk_RNA-seq_jun_2022/metadata/_m/fastq_input_path.tsv', sep='\t')
+    for x in df.itertuples(index=False, name=None):
+        d = dict(zip(df.columns, x))
+        yield (d['New Sample ID'], d)
+        
+       
+sample_dict = dict(get_sample_data())
+
+
+
+rule all:
+    input:
+        expand('{sample}.bam', sample=sample_dict.keys())
+
+
+rule hisat2:
+    input:
+        r1 = lambda w: sample_dict[w.sample]['r1'],
+        r2 = lambda w: sample_dict[w.sample]['r2'],
+
+    output:
+        '{sample}.bam'
+    
+    params:
+        r1 = lambda w: sample_dict[w.sample]['r1'],
+        r2 = lambda w: sample_dict[w.sample]['r2'],
+    log:
+        stdout = '{sample}.stdout',
+        stderr = '{sample}.stderr',
+    shell:
+        """ ( hisat2 \
+        --dta \
+        --time \
+        --threads 1 \
+        -x /ceph/genome/human/gencode37/GRCh38.p13.PRI/gtf.PRI/hisat2/_m/GRCh38.primary_assembly.genome \
+        -1 {input.r1} \
+        -2 {input.r2} \
+        | samtools view -u - \
+        | samtools sort -o {output} -m 3G --threads 1 -
+) \
+        > {log.stdout} 2> {log.stderr}
+        """
