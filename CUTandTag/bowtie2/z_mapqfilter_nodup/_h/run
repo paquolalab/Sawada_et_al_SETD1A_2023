@@ -1,0 +1,13 @@
+#!/bin/bash
+
+mkdir -p ./sam
+mkdir -p ./bam
+mkdir -p ./bed
+mkdir -p ./bedgraph
+
+../_h/mapqfilter2bam-bed.sh
+
+../_h/bed2bedgraph_no-spikein_norm.sh
+
+../_h/replicate_reproducibility.sh
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+../_h/seacr_peaks-bash.sh
+
+../_h/bigwig_snakemake.sh
+
+

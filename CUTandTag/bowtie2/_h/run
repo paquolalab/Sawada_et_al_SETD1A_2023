@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir -p ./sam/bowtie2_summary
+
+
+
+../_h/bowtie_run_hs.sh
+

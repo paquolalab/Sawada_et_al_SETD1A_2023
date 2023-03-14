@@ -1,0 +1,7 @@
+#!/bin/bash
+
+mkdir -p ./rmDuplicate/picard_summary
+mkdir -p ./sam/fragmentLen
+
+../_h/picard.sh
+../_h/picard-del_duplicates.sh
